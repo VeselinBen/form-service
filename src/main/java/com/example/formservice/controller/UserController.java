@@ -80,7 +80,7 @@ public class UserController {
 
 
     @PostMapping("/reset-password")
-    public ResponseEntity<SuccessfulResponse<Object>> resetPassword(@RequestBody @Valid ResetPasswordRequestDto resetPasswordRequest) {
+    public ResponseEntity<SuccessfulResponse<String>> resetPassword(@RequestBody @Valid ResetPasswordRequestDto resetPasswordRequest) {
         userService.resetPassword(resetPasswordRequest.getToken(), resetPasswordRequest.getNewPassword());
         return successResponseHandler.ok("Password has been reset successfully.");
     }

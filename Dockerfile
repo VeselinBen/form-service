@@ -1,14 +1,14 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:17-jdk-alpine
+# Koristi zvaničnu OpenJDK sliku kao bazu
+FROM openjdk:17-jdk-slim
 
-# Set the working directory in the container
+# Postavi radni direktorijum unutar kontejnera
 WORKDIR /app
 
-# Copy the packaged jar file into the container
-COPY target/form-service-0.0.1-SNAPSHOT.jar app.jar
+# Kopiraj jar fajl u kontejner
+COPY target/formservice-0.0.1-SNAPSHOT.jar /app/forms-service.jar
 
-# Expose the port your application will run on
-EXPOSE 8080
+# Izloži port 8081
+EXPOSE 8081
 
-# Set the entry point to run the jar file
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Definiši komandu za pokretanje aplikacije
+CMD ["java", "-jar", "forms-service.jar"]
